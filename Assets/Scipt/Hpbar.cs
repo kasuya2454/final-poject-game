@@ -5,10 +5,32 @@ using UnityEngine.UI;
 
 public class Hpbar : MonoBehaviour
 {
+    //not call these variables _xxx
+    private float _hp;
+
+    [Header("Player Stat")]
+    [SerializeField] private float MAX_HP;
+    [SerializeField] private float MIN_HP;
+
+    [Header("Reletive GameObject")]
     [SerializeField] private Slider HpBar;
     [SerializeField] private Text HpText;
-    [SerializeField] private float HpPlayer = 100f;
+
+    [SerializeField] private GameObject fillAreaObject;
+
+    [HideInInspector]
+    public float Hp
+    {
+        get => _hp;
+        set
+        {
+            if (value < MIN_HP) _hp = MIN_HP;
+            else if (value > MAX_HP) _hp = MAX_HP;
+            else _hp = value;
+        }
+    }
     public static Hpbar instance;
+
 
     private void Awake()
     {
@@ -17,19 +39,25 @@ public class Hpbar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Hp = MAX_HP;
+        HpText.text = $"HP:  {Hp}";
     }
 
     // Update is called once per frame
     void Update()
     {
-        HpBar.value = HpPlayer;
-        HpText.text = "HP" + HpPlayer;
+
     }
 
     public void DamagePlayer(float damageAmount)
     {
-        HpPlayer -= damageAmount;
+        if (Hp > MIN_HP)
+        {
+            Hp -= damageAmount;
+            HpBar.value = Hp;
+            HpText.text = $"HP:  {Hp}";
+            if (Hp == MIN_HP) fillAreaObject.SetActive(false);
+        }
     }
 
     /*public void HealPlayer(float heal)
