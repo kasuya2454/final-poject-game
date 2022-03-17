@@ -59,10 +59,13 @@
     <Compile Include="Assets\Shinabro\Platform_Animation\Scripts\CheckmumyAttack.cs" />
     <Compile Include="Assets\Chibi Mummy\Misc\Scripts\buttonControl_script.cs" />
     <Compile Include="Assets\Shinabro\Platform_Animation\Scripts\PlayerController_Platform.cs" />
+    <Compile Include="Assets\Shinabro\Platform_Animation\Scripts\TestScript.cs" />
+    <Compile Include="Assets\Scipt\GameState.cs" />
     <Compile Include="Assets\Scipt\Hpbar.cs" />
     <Compile Include="Assets\Shinabro\Platform_Animation\Scripts\TargetCamera_Platform.cs" />
     <Compile Include="Assets\Chibi Mummy\Misc\Scripts\CharMovement.cs" />
     <Compile Include="Assets\Scipt\Enemy.cs" />
+    <Compile Include="Assets\Scipt\Canvas.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Seven Swords\Swords\Shader\ToonSwords.shader" />

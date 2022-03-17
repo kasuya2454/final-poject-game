@@ -97,6 +97,7 @@ public class Enemy : MonoBehaviour
     IEnumerator delayDead()
     {
         yield return new WaitForSeconds(3);
+        GameState.instance.Score++;
         Destroy(gameObject);
     }
 
